@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class AirField {
 	private List<Jet> fleet;
@@ -25,12 +23,14 @@ public class AirField {
 				int rangeJ = Integer.parseInt(splitLine[3]);
 				long priceJ = Long.parseLong(splitLine[4]);
 
-				if (splitLine[0].equals("passenger")) {
+				if (splitLine[0].equals("passenger") || splitLine[0].equals("Passenger")) {
 					fleet.add(new Passenger(splitLine[1], speedJ, rangeJ, priceJ));
-				} else if (splitLine[0].equals("cargo plane")) {
+				} else if (splitLine[0].equals("cargo plane") || splitLine[0].equals("Cargo Plane")) {
 					fleet.add(new CargoPlane(splitLine[1], speedJ, rangeJ, priceJ));
-				} else if (splitLine[0].equals("Fighter Jet")) {
+				} else if (splitLine[0].equals("Fighter Jet") || splitLine[0].equals("fighter jet")) {
 					fleet.add(new FighterJet(splitLine[1], speedJ, rangeJ, priceJ));
+				} else if (splitLine[0].equals("Freight Aircraft") || splitLine[0].equals("freight aircraft")) {
+					fleet.add(new FreightAircraft(splitLine[1], speedJ, rangeJ, priceJ));
 				}
 			}
 		} catch (IOException e) {
@@ -47,8 +47,9 @@ public class AirField {
 	}
 	
 	public void flyJet() {
-		for (Jet jet : fleet) {
-			jet.fly();
+		for (int i = 0; i < fleet.size(); i ++) {
+			System.out.print((i+1) + ". ");
+			fleet.get(i).fly();
 		}
 	}
 	
@@ -62,7 +63,6 @@ public class AirField {
 		for (Jet jet : fleet) {
 			if (jet.getSpeed() == max) {
 				System.out.println(jet);
-				break;
 			}
 		}
 	}
@@ -77,7 +77,6 @@ public class AirField {
 		for (Jet jet : fleet) {
 			if (jet.getRange() == max) {
 				System.out.println(jet);
-				break;
 			}
 		}
 	}
@@ -116,8 +115,18 @@ public class AirField {
 			jetToAdd = new CargoPlane(jetModel, jetSpeed, jetRange, jetPrice);
 		} else if (type == 3) {
 			jetToAdd = new FighterJet(jetModel, jetSpeed, jetRange, jetPrice);
+		} else if (type == 4) {
+			jetToAdd = new FreightAircraft(jetModel, jetSpeed, jetRange, jetPrice);
+		} else {
+			System.out.println("There is no such type in the AirField");
 		}
-		fleet.add(jetToAdd);
+		if ( jetToAdd != null ) {
+			fleet.add(jetToAdd);
+			System.out.println("a new Jet is added to Air Field");
+		} else {
+			System.out.println("There is no new Jet added!");
+		}
+		
 		displayJet();
 	}
 	

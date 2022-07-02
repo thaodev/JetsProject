@@ -16,7 +16,7 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		System.out.println("Model: " + model + ", speed: " + speed + ", range: " + range + ", price: " + price
+		System.out.println(getClass().getSimpleName() + " - Model: " + model + ", speed: " + speed + ", range: " + range + ", price: " + price
 				+ ", amount of fly time : " + range/speed);
 	}
 

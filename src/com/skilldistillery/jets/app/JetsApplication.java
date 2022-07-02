@@ -80,6 +80,7 @@ public class JetsApplication {
 		System.out.println("1.Passenger");
 		System.out.println("2.Cargo Plane");
 		System.out.println("3.Fighter Jet");
+		System.out.println("4.Freight Aircraft");
 	}
 
 }

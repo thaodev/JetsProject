@@ -1,3 +1,6 @@
 #type,model,speed,range,price
-passenger,Cessna 172,20,100,120000
-ufo,blurry,1000,10000000,250000
+passenger, Cessna 172, 20, 100, 120000
+cargo plane, AIRBUS A300, 100, 9500, 386000000
+cargo plane, C300, 160, 7500, 186000000
+Fighter Jet, F-16 Fighting Falcon, 400, 3000, 100000000
+Fighter Jet, Fouga Magister, 100, 1500, 65000000

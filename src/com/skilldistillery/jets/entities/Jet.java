@@ -6,7 +6,7 @@ public abstract class Jet {
 	private double speed;
 	private int range;
 	private long price;
-
+	private Pilot pilot;
 	
 	public Jet(String model, double speed, int range, long price) {
 		this.model = model;
@@ -51,11 +51,22 @@ public abstract class Jet {
 	public void setPrice(long price) {
 		this.price = price;
 	}
+	
+	
+
+	public Pilot getPilot() {
+		return pilot;
+	}
+
+	public void setPilot(Pilot pilot) {
+		this.pilot = pilot;
+	}
 
 	@Override
 	public String toString() {
 		return getClass().getSimpleName()+" - Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
 	}
+	
 	
 	
 

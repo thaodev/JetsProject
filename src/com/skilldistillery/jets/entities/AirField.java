@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class AirField {
 	private List<Jet> fleet;
-	// private final int MAX_JET = 20;
 
 	public AirField() {
 		fleet = new ArrayList<>();
@@ -98,16 +97,8 @@ public class AirField {
 			}
 		}
 	}
-	public void addJet(int type) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Model: ");
-		String jetModel = sc.nextLine();
-		System.out.println("Enter Speed: ");
-		double jetSpeed = sc.nextDouble();
-		System.out.println("Enter Range: ");
-		int jetRange = sc.nextInt();
-		System.out.println("Enter Price: ");
-		long jetPrice = sc.nextLong();
+	public void addJet(int type, String jetModel, double jetSpeed, int jetRange, long jetPrice) {
+
 		Jet jetToAdd = null;
 		if (type == 1) {
 			jetToAdd = new Passenger(jetModel, jetSpeed, jetRange, jetPrice);
@@ -122,7 +113,7 @@ public class AirField {
 		}
 		if ( jetToAdd != null ) {
 			fleet.add(jetToAdd);
-			System.out.println("a new Jet is added to Air Field");
+			System.out.println("A new " + jetToAdd.getClass().getSimpleName() + " is added to Air Field");
 		} else {
 			System.out.println("There is no new Jet added!");
 		}
@@ -133,6 +124,24 @@ public class AirField {
 	public void deleteJet(int jetToDelete) {
 		fleet.remove(jetToDelete - 1);
 		System.out.println("Jet in position " + jetToDelete + " was deleted!");
+	}
+	
+	public void flyAJet() {
+		displayJet();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Jet number to fly:");
+		int jetToFly = sc.nextInt();
+		System.out.println("Assigning a pilot to the Jet:");
+		System.out.println("Enter the pilot Name: ");
+		sc.nextLine();
+		String pilotName = sc.nextLine();
+		System.out.println("Enter the year of experience: ");
+		int pilotYear = sc.nextInt();
+		Pilot pilot = new Pilot(pilotName, pilotYear);
+		fleet.get(jetToFly - 1).setPilot(pilot);
+		System.out.println("You are flying ");
+		System.out.println(fleet.get(jetToFly - 1) + " with " +  pilot.toString());
+		
 	}
 
 }

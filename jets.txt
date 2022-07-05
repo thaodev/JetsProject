@@ -4,3 +4,5 @@ cargo plane, AIRBUS A300, 100, 9500, 386000000
 cargo plane, C300, 160, 7500, 186000000
 Fighter Jet, F-16 Fighting Falcon, 400, 3000, 100000000
 Fighter Jet, Fouga Magister, 100, 1500, 65000000
+Passenger, MH37, 50, 150, 1500000
+Freight Aircraft, AK470, 400, 9500, 3000000

@@ -31,7 +31,7 @@ public class JetsApplication {
 				aF.fastestJet();
 				break;
 			case 4: 
-				System.out.println("The jetwith longest range: ");
+				System.out.println("The Jet with longest range: ");
 				aF.longestRangeJet();
 				break;
 			case 5:
@@ -42,8 +42,18 @@ public class JetsApplication {
 				break;
 			case 7: 
 				displaySubMenu();
+				System.out.println("Enter type: ");
 				int type = sc.nextInt();
-				aF.addJet(type);
+				System.out.println("Enter Model: ");
+				String jetModel = sc.nextLine();
+				sc.nextLine();
+				System.out.println("Enter Speed: ");
+				double jetSpeed = sc.nextDouble();
+				System.out.println("Enter Range: ");
+				int jetRange = sc.nextInt();
+				System.out.println("Enter Price: ");
+				long jetPrice = sc.nextLong();
+				aF.addJet(type, jetModel, jetSpeed, jetRange, jetPrice);
 				break;
 			case 8:
 				aF.displayJet();
@@ -52,6 +62,9 @@ public class JetsApplication {
 				aF.deleteJet(number);
 				break;
 			case 9:
+				aF.flyAJet();
+				break;
+			case 10:
 				System.out.println("You chose to exist! Good Bye!");
 				isContinued = false;
 				break;
@@ -71,7 +84,8 @@ public class JetsApplication {
 		System.out.println("6.Dogfight!");
 		System.out.println("7.Add a jet to Fleet");
 		System.out.println("8.Remove a jet from Fleet");
-		System.out.println("9.Quit");
+		System.out.println("9.Fly a jet");
+		System.out.println("10.Quit");
 		System.out.println("=================================");
 	}
 	
